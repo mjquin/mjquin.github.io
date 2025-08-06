@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <title>Contoh Layout Website</title>
+  <meta charset="UTF-8">
+  <title>Layout Tiga Kolom</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #eee;
     }
 
     .container {
@@ -14,83 +15,95 @@
       grid-template-areas:
         "header"
         "nav"
-        "sidebar-left content sidebar-right"
+        "main"
         "footer";
-      grid-template-columns: 1fr 2fr 1fr;
       gap: 10px;
       padding: 10px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     header {
       grid-area: header;
-      background-color: #b04c55;
+      background-color: #c62828;
       color: white;
-      text-align: center;
       padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
     }
 
     nav {
       grid-area: nav;
-      background-color: #e89151;
+      background-color: #f57c00;
       color: white;
-      text-align: center;
       padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    .sidebar-left {
-      grid-area: sidebar-left;
-      background-color: #c06571;
+    .main {
+      grid-area: main;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 10px;
+    }
+
+    .sidebar {
+      background-color: #e57373;
       color: white;
-      padding: 15px;
+      padding: 20px;
       text-align: center;
+      font-weight: bold;
     }
 
     .content {
-      grid-area: content;
-      background-color: #f5b46f;
-      padding: 15px;
+      background-color: #ffa726;
+      padding: 20px;
       text-align: center;
-    }
-
-    .sidebar-right {
-      grid-area: sidebar-right;
-      background-color: #c06571;
-      color: white;
-      padding: 15px;
-      text-align: center;
+      font-weight: bold;
     }
 
     footer {
       grid-area: footer;
-      background-color: #b04c55;
+      background-color: #c62828;
       color: white;
-      text-align: center;
       padding: 20px;
+      text-align: center;
+      font-weight: bold;
     }
 
-    /* Responsive layout for small screens */
+    /* Responsive untuk HP */
     @media (max-width: 768px) {
-      .container {
-        grid-template-areas:
-          "header"
-          "nav"
-          "sidebar-left"
-          "content"
-          "sidebar-right"
-          "footer";
+      .main {
         grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        order: 1;
+      }
+
+      .content {
+        order: 2;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <header>Header</header>
     <nav>Menu Navigasi</nav>
-    <div class="sidebar-left">Sidebar</div>
-    <div class="content">Content</div>
-    <div class="sidebar-right">Sidebar</div>
+    
+    <div class="main">
+      <div class="sidebar">Sidebar</div>
+      <div class="content">Content</div>
+      <div class="sidebar">Sidebar</div>
+    </div>
+
     <footer>Footer</footer>
   </div>
+
 </body>
 </html>
